@@ -25,7 +25,7 @@ app.post('/log', (req, res) => {
 
         const toLog = `\n************\n${Date()}:\n************\n${body}`
 
-        fs.appendFileSync('/tmp/log.txt', toLog)
+        fs.appendFileSync('/tmp/log.js', toLog)
 
         res.status(200).send({status: 'ok'})
     } catch (err) {
@@ -43,7 +43,7 @@ app.post('/log', (req, res) => {
             fs.mkdirSync('/tmp', { recursive: true });
         }
 
-        fs.appendFileSync('/tmp/log.txt', errorToLog)
+        fs.appendFileSync('/tmp/log.js', errorToLog)
 
         res.status(500).send({status: 'failed'})
     }
